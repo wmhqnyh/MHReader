@@ -4,7 +4,6 @@ import android.app.Application;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.imagepipeline.core.ImagePipelineConfig;
 
 public class ReaderApplication extends Application {
 
@@ -19,10 +18,17 @@ public class ReaderApplication extends Application {
         initFrescoLib();
     }
 
+    /**
+     * 初始化Fresco
+     */
+
     private void initFrescoLib() {
         Fresco.initialize(this);
     }
 
+    /**
+     *  初始化ARouter
+     */
     private void initARouterLib() {
         if (isDebug) {           // These two lines must be written before init, otherwise these configurations will be invalid in the init process
             ARouter.openLog();     // Print log
@@ -30,4 +36,5 @@ public class ReaderApplication extends Application {
         }
         ARouter.init(this);
     }
+    
 }
