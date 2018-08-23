@@ -1,0 +1,13 @@
+def build_versions = [:]
+build_versions.MIN_SDK_VERSION = 17
+build_versions.TARGET_SDK_VERSION = 27
+build_versions.COMPILE_SDK_VERSION = 27
+ext.build_versions = build_versions
+
+def versions = [:]
+versions.SUPPORT = "27.1.1"
+versions.AROUTER_API = "1.3.1"
+versions.AROUTER_COMPILER = "1.1.4"
+versions.FRESCO_VERSION = "1.9.0"
+versions.LIFECYCLE_VERSION = "1.1.1"
+ext.versions = versions
