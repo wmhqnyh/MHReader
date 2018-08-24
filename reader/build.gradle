@@ -1,15 +1,29 @@
-apply plugin: 'com.android.library'
+if (isModule.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 27
 
-
-
     defaultConfig {
+
+        if (isModule.toBoolean()) {
+            applicationId "com.wangmh.mhreader.reader"
+        }
+
         minSdkVersion 19
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -22,10 +36,34 @@ android {
         }
     }
 
+    sourceSets {
+        main {
+            if (isModule.toBoolean()) {
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                //集成开发模式下排除debug文件夹中的所有Java文件
+                java {
+                    exclude 'debug/**'
+                }
+            }
+        }
+    }
+
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':common')
+    //epublib
+    implementation files('libs/epublib-core-latest.jar')
+    //slf4j
+    implementation files('libs/slf4j-api-1.7.25.jar')
+    //jsoup
+    implementation 'org.jsoup:jsoup:1.11.3'
+    //pdfview
+    implementation 'com.joanzapata.pdfview:android-pdfview:1.0.4@aar'
+}
+repositories {
+    mavenCentral()
 }

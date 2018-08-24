@@ -38,3 +38,6 @@ dependencies {
 //            implementation project(':user')
     }
 }
+repositories {
+    mavenCentral()
+}

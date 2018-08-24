@@ -1,6 +1,6 @@
-package com.wangmh.common.util;
+package com.wangmh.mhreader.common.util;
 
-import com.wangmh.common.http.RetrofitService;
+import com.wangmh.mhreader.common.http.RetrofitService;
 
 import java.util.concurrent.TimeUnit;
 

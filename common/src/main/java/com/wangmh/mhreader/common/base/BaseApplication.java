@@ -1,21 +1,21 @@
-package com.wangmh.mhreader;
+package com.wangmh.mhreader.common.base;
 
 import android.app.Application;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.facebook.drawee.backends.pipeline.Fresco;
 
-public class ReaderApplication extends Application {
+public class BaseApplication extends Application{
 
-    private static final String TAG = ReaderApplication.class.getSimpleName();
+    private static final String TAG = BaseApplication.class.getSimpleName();
     private static boolean isDebug = true;
-
     @Override
     public void onCreate() {
         super.onCreate();
 
-        initARouterLib();
         initFrescoLib();
+        initARouterLib();
+
     }
 
     /**
@@ -36,5 +36,4 @@ public class ReaderApplication extends Application {
         }
         ARouter.init(this);
     }
-    
 }
