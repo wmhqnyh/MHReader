@@ -11,9 +11,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitUtils {
 
-    private static final int DEFAULT_TIMEOUT = 10;
-    private static final String BASE_URL = RetrofitService.BASE_URL;;
     private static String TAG = RetrofitUtils.class.getSimpleName();
+    private static final int DEFAULT_TIMEOUT = 10;
+    private static final String BASE_URL = RetrofitService.BASE_URL;
 
     private static volatile RetrofitUtils retrofitUtils;
     private Retrofit retrofit;
