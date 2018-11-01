@@ -3,7 +3,7 @@
     package="com.wangmh.mhreader">
 
     <application
-        android:name=".ReaderApplication"
+        android:name=".MHReaderApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
